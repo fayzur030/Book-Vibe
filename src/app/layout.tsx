@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist_Mono, Playfair } from 'next/font/google'
+import { Geist_Mono, Lora } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/component/shared/Navbar'
 import { BookProvider } from '@/context/BooksContext'
@@ -10,8 +10,13 @@ import Footer from '@/component/shared/Footer'
 //   variable: '--font-geist-sans',
 //   subsets: ['latin'],
 // })
-const playfair = Playfair({
-  variable: '--font-geist-sans',
+
+// const playfair = Playfair({
+//   variable: '--font-geist-sans',
+//   subsets: ['latin'],
+// })
+const lora = Lora({
+  variable: '--font-lora',
   subsets: ['latin'],
 })
 
@@ -29,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang='en'
-      className={`${playfair.className} ${geistMono.variable} h-full antialiased`}
+      className={`${lora.className} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-screen flex flex-col'>
         <ToastContainer />
