@@ -1,4 +1,5 @@
-import ReadBook from '@/component/booksDetails/ReadBook'
+import ReadReadBookButtonBook from '@/component/booksDetails/ReadBookButton'
+import WishlistButton from '@/component/booksDetails/WishlistButton'
 import { getBookById } from '@/services/getBooks'
 import Image from 'next/image'
 
@@ -103,10 +104,11 @@ const BookDetailsPage = async ({ params }: DetailsProps) => {
 
         {/* Buttons */}
         <div className='mt-auto flex gap-3 pt-7'>
-          <ReadBook book={book} />
-          <button className='rounded-md bg-[#2CAED3] px-6 py-2.5 text-sm cursor-pointer font-medium text-white transition hover:bg-[#2299BA]'>
+          <ReadReadBookButtonBook book={book} />
+          <WishlistButton book={book} />
+          {/* <button className='rounded-md bg-[#2CAED3] px-6 py-2.5 text-sm cursor-pointer font-medium text-white transition hover:bg-[#2299BA]'>
             Wishlist
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

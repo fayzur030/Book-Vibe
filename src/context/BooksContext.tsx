@@ -5,16 +5,20 @@ import React, { createContext, useState } from 'react'
 interface BooksContextType {
   readBooks: BooksTypes[]
   setReadBooks: React.Dispatch<React.SetStateAction<BooksTypes[]>>
+  wishlist: BooksTypes[]
+  setWishlist: React.Dispatch<React.SetStateAction<BooksTypes[]>>
 }
 
 export const BooksContext = createContext<BooksContextType>({
   readBooks: [],
   setReadBooks: () => {},
- })
+  wishlist: [],
+  setWishlist: () => {},
+})
 
 export const BookProvider = ({ children }: { children: React.ReactNode }) => {
   const [readBooks, setReadBooks] = useState<BooksTypes[]>([])
-  const [wishlist, setWishlist] = useState([])
+  const [wishlist, setWishlist] = useState<BooksTypes[]>([])
 
   const shareData = {
     readBooks,

@@ -3,13 +3,13 @@
 import { OutlineBtn } from '@/common/OutLIneBtn'
 import { BooksContext } from '@/context/BooksContext'
 import { BooksTypes } from '@/types/BooksType'
-import { showInfoToast, showSuccessToast } from '@/utils/toast'
+import { showInfoToast, showSuccessToast, showWarningTost } from '@/utils/toast'
 import { useContext } from 'react'
 interface IBook {
   book: BooksTypes
 }
 
-const ReadBook = ({ book }: IBook) => {
+const ReadBookButton = ({ book }: IBook) => {
   const { readBooks, setReadBooks } = useContext(BooksContext)
 
   const handelRead = () => {
@@ -17,7 +17,7 @@ const ReadBook = ({ book }: IBook) => {
       (readBook) => readBook.bookId === book.bookId
     )
     if (alreadyRead) {
-      showInfoToast('Already read')
+      showWarningTost('Already added to your read list')
       return
     }
     setReadBooks((prev: BooksTypes[]) => [...prev, book])
@@ -28,4 +28,4 @@ const ReadBook = ({ book }: IBook) => {
   return <OutlineBtn onClick={handelRead}>Read</OutlineBtn>
 }
 
-export default ReadBook
+export default ReadBookButton
