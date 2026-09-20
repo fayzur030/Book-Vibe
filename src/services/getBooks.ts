@@ -1,23 +1,23 @@
 import { BooksTypes } from '@/types/BooksType'
-// const Base_URL = 'http://localhost:3000'
 
 export const getBooks = async (): Promise<BooksTypes[]> => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
     )
+
     if (!response.ok) {
       throw new Error('Failed to fetch books data')
     }
+
     const books: BooksTypes[] = await response.json()
+
     return books
   } catch (error) {
     console.error('Error fetching books:', error)
+    return []
   }
-  return []
 }
-
-//getBooksById
 
 export const getBookById = async (
   id: string
@@ -32,7 +32,5 @@ export const getBookById = async (
 
   const books: BooksTypes[] = await response.json()
 
-  const book = books.find((book) => book.bookId === Number(id))
-
-  return book
+  return books.find((book) => book.bookId === Number(id))
 }
