@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Playfair } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/component/shared/Navbar'
+import { BookProvider } from '@/context/BooksContext'
+import { ToastContainer } from 'react-toastify'
 
 // const geistSans = Geist({
 //   variable: '--font-geist-sans',
@@ -29,8 +31,11 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${playfair.className} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full '>
-        <Navbar />
-        {children}
+        <ToastContainer />
+        <BookProvider>
+          <Navbar />
+          {children}
+        </BookProvider>
       </body>
     </html>
   )
