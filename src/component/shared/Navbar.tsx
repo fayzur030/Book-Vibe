@@ -12,6 +12,10 @@ const navLinks = [
     href: '/',
   },
   {
+    name: 'Books',
+    href: '/books',
+  },
+  {
     name: 'Listed-Books',
     href: '/listed_books',
   },

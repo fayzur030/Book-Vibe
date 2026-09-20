@@ -1,5 +1,6 @@
 interface PrimaryBtnProps {
   children: React.ReactNode
+  // onClick: () => void
 }
 export const PrimaryBtn = ({ children }: PrimaryBtnProps) => {
   return (

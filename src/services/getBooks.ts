@@ -14,3 +14,21 @@ export const getBooks = async (): Promise<BooksTypes[]> => {
   }
   return []
 }
+
+//getBooksById
+
+export const getBookById = async (
+  id: string
+): Promise<BooksTypes | undefined> => {
+  const response = await fetch(`${Base_URL}/booksData.json`)
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch books data')
+  }
+
+  const books: BooksTypes[] = await response.json()
+
+  const book = books.find((book) => book.bookId === Number(id))
+
+  return book
+}

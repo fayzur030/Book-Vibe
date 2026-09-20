@@ -1,9 +1,10 @@
-import { OutlineBtn } from '@/common/OutLIneBtn'
+// import { OutlineBtn } from '@/common/OutLIneBtn'
 import { PrimaryBtn } from '@/common/PrimaryBtn'
-import { SecondaryBtn } from '@/common/SecondaryBtn'
+// import { SecondaryBtn } from '@/common/SecondaryBtn'
 import { BooksTypes } from '@/types/BooksType'
 import { Star } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface BooksProps {
   books: BooksTypes
@@ -48,7 +49,7 @@ const BooksCard = ({ books }: BooksProps) => {
       <div className='my-4 border-t border-dashed border-gray-200' />
 
       {/* Bottom Info */}
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between mb-4'>
         <span className='text-sm font-medium text-[#444444]'>
           {books.category}
         </span>
@@ -61,9 +62,9 @@ const BooksCard = ({ books }: BooksProps) => {
           <Star size={19} strokeWidth={1.5} className='text-[#444444]' />
         </div>
       </div>
-      <div className='mt-4'>
+      <Link href={`/books/${books.bookId}`} className='mt-4 md:mt-6'>
         <PrimaryBtn>Details</PrimaryBtn>
-      </div>
+      </Link>
     </div>
   )
 }
