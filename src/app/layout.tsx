@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Playfair } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/component/shared/Navbar'
 
-const geistSans = Geist({
+// const geistSans = Geist({
+//   variable: '--font-geist-sans',
+//   subsets: ['latin'],
+// })
+const playfair = Playfair({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 })
@@ -22,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang='en'
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${playfair.className} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full '>
         <Navbar />

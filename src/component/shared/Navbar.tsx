@@ -17,7 +17,7 @@ const navLinks = [
   },
   {
     name: 'Pages to Read',
-    href: '/pages-to-read',
+    href: '/pages_to_read',
   },
 ]
 
@@ -28,14 +28,14 @@ const Navbar = () => {
   return (
     <nav className='sticky top-0 z-50 border-b border-gray-200/70 bg-white/90 backdrop-blur-md'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='h-20 flex items-center justify-between'>
+        <div className=' py-4 flex items-center justify-between'>
           {/* Logo */}
           <Link href='/' className='text-2xl font-bold '>
             Book Vibe
           </Link>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center gap-2'>
+          <div className='hidden md:flex items-center gap-6'>
             {navLinks.map((item) => {
               const active = pathname === item.href
 
@@ -43,9 +43,9 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative px-4 py-1.5 rounded-lg text-sm lg:text-base font-medium transition-all duration-300 ${
+                  className={`relative  rounded-lg text-sm lg:text-base font-semibold transition-all duration-300 ${
                     active
-                      ? 'text-[#23BE0A] border border-[#23BE0A]'
+                      ? 'text-[#23BE0A]'
                       : 'text-[#131313] hover:text-blue-500 '
                   }`}
                 >
